@@ -59,7 +59,7 @@ Combine with DISTINCT:
 Use =, >, >=, < and <=  
 
 **DATE FIELDS**  
-**single quotes! syntax depends on location and sytem setup for dates**  
+**single quotes! syntax depends on location and system setup for dates**  
 > WHERE orderdate = '2020-05-14'  
 > WHERE orderdate > '2020-01-01'  
 
@@ -70,8 +70,20 @@ Use =, >, >=, < and <=
 > WHERE *condition1* OR *condition2* OR *condition3* ...  
 * Using OR with WHERE: a record will be selected if the condition(s) is not true
 > WHERE NOT *condition*  
-* Combining AND, OR and NOT with WHERE: *use parentheses to group!*  
+* Combining AND, OR and NOT with WHERE: *use parentheses to group for clarity!*  
 > WHERE (*condition1* AND *condition2*) OR *condition3*  
+
+**BETWEEN operator**  
+BETWEEN is a shortcut for >= xxx AND <= xxx  
+> WHERE *column* BETWEEN xxx AND xxx  
+
+**IN operator**  
+In queries many conditions (WHERE id=2 OR id=9 OR id=15 OR id=18 OR id=22) you can use  
+> WHERE id IN (2, 9, 15, 18, 22)  
+
+
+
+
 
 
 
