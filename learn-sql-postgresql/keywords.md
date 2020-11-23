@@ -1,4 +1,4 @@
-## SQL keywords:
+### SQL keywords:
 SELECT  
 FROM  
 WHERE  
@@ -17,26 +17,35 @@ HAVING
 
 **SELECT**  
 Selecting all data from table:   
-> SELECT *
+> SELECT *  
 > FROM *table_name*
 
 Selecting with field names:  
-> SELECT *column1*, *column2*, ...
+> SELECT *column1*, *column2*, ...  
 > FROM *table_name*
 
 Selecting distinct values (only one value for each type):  
-> SELECT DISTINCT *column1*, *column2*, ...
+> SELECT DISTINCT *column1*, *column2*, ...  
 > FROM *table_name*
 
-**SELECT COUNT**
+**SELECT COUNT**  
 How many records match? (e.g. how many items in a table)  
-> SELECT COUNT *column1*
+> SELECT COUNT (*column1*)  
 > FROM *table_name*
 
 or for all rows:  
-> SELECT COUNT (*)
+> SELECT COUNT (*)  
 > FROM *table_name*
 
 Combine with DISTINCT:  
-> SELECT COUNT (DISTINCT *column*)
+> SELECT COUNT (DISTINCT *column*)  
 > FROM *table_name*
+
+**Combining fields for calculations**  
+> SELECT *column1* + *column2*  
+> SELECT *column1* / 1.1  
+
+
+
+
+
