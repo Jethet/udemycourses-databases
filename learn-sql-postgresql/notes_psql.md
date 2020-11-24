@@ -36,15 +36,16 @@ To connect, use:
 ### Command line for PostgreSQL
 **Use the same database keywords for SQL on the command line as in pgAdmin**  
 
-To **stop** run: q
-To **quit** programme: \q  
-To check **version**: psql -V  
-To **create** database: createdb NAME_DB  
-To **connect** to database: psql NAME_DB  
-To **execute** SQL code in file: psql -d EXAMPLE_DATABASE -f exampleFile.sql  
-To see **list** of databases: \l  
-To **clear** terminal: \! clear  
-To connect to **other** database: \c *database*
+**Stop** run: q  
+**Quit** programme: \q  
+Check **version**: psql -V  
+**Create** database: createdb NAME_DB  
+**Connect** to database: psql NAME_DB  
+**Execute** SQL code in file: psql -d *database* -f exampleFile.sql  
+See **list** of databases: \l  
+**Clear** terminal: `\! clear`  
+Connect to **other** database: \c *database*  
+
 
 
 
