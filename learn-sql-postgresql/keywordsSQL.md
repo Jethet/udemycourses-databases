@@ -81,9 +81,7 @@ BETWEEN is a shortcut for >= xxx AND <= xxx
 In queries many conditions (WHERE id=2 OR id=9 OR id=15 OR id=18 OR id=22) you can use  
 > WHERE id IN (2, 9, 15, 18, 22)  
 
-
-
-**Schemas**
+**SCHEMAS**  
 To be able to work with tables in a schema, you add the schema name before the table name: production.product, for example.
 
 
