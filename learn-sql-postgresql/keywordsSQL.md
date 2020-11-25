@@ -85,6 +85,17 @@ In queries many conditions (WHERE id=2 OR id=9 OR id=15 OR id=18 OR id=22) you c
 To be able to work with tables in a schema, you add the schema name before the table name: production.product, for example.
 
 
+**TABLES**
+* `SERIAL PRIMARY KEY` defines a unique identifier for each row that will automatically increment every time data is inserted
+* `VARCHAR()` defines a column to hold text with a maximum length of characters
+* `NOT NULL` defines the column as not nullable: a value must be set
+* `INT`
+* `TEXT`
+* `BOOLEAN`
+* `DATE`
+*A database will reject any values that do not match the type!*  
+* `INSERT INTO` *table name* (keys to be used) `VALUES` ('value for key', 'value for key', etc.)
+
 
 
 
