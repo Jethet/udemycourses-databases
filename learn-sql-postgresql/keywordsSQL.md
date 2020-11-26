@@ -121,12 +121,12 @@ FOREIGN KEY (student_name) REFERENCES students (name)
 ```
 
 **Alter table**
-* To change the structure of an existing table, you use PostgreSQL ALTER TABLE statement. The syntax is:
+* To change the structure of an existing table, you use PostgreSQL ALTER TABLE statement. The syntax is:  
 `ALTER TABLE table_name action;`
-* The following changes to an existing table are available:
+* The following changes to an existing table are available (data_type can be INT, VARCHAR, etc.):
 ```
 ALTER TABLE table_name 
-ADD COLUMN column_name datatype column_constraint;
+ADD COLUMN column_name data_type column_constraint;
 
 ALTER TABLE table_name 
 DROP COLUMN column_name;

@@ -48,6 +48,15 @@ Connect to **other** database: `\c *database* `
 **Show users**: (postgres as superuser) `\du`  
 **Login**: `psql -U postgres -h localhost` `psql -U username -W postgres`  
 
+### Schemas in psql terminal:
+See **schemas list**: `\dn`  
+See **list of schema tables**: `\dt exampleSchema.`  
+See **schema table data**: `SELECT * FROM exampleSchema.table;`  
+
+
+
+
+
 
 
 
