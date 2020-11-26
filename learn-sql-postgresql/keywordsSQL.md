@@ -85,7 +85,7 @@ In queries many conditions (WHERE id=2 OR id=9 OR id=15 OR id=18 OR id=22) you c
 To be able to work with tables in a schema, you add the schema name before the table name: production.product, for example.
 
 
-**TABLES**
+**TABLES**  
 * `SERIAL PRIMARY KEY` defines a unique identifier for each row that will automatically increment every time data is inserted
 * `VARCHAR()` defines a column to hold text with a maximum length of characters
 * `NOT NULL` defines the column as not nullable: a value must be set
@@ -96,6 +96,12 @@ To be able to work with tables in a schema, you add the schema name before the t
 *A database will reject any values that do not match the type!*  
 * `INSERT INTO` *table name* (keys to be used) `VALUES` ('value for key', 'value for key', etc.)
 
+**Foreign Key**  
+Syntax: `FOREIGN KEY (column) REFERENCES parent_table (table_name)`  
+* A foreign key is a column or a group of columns used to identify a row uniquely of a different table.
+* The table that comprises the foreign key is called the referencing table or child table.
+* The table to that the foreign key references is known as the referenced table or parent table.
+* A table can possess multiple foreign keys according to its relationships with other tables. 
 
 
 
