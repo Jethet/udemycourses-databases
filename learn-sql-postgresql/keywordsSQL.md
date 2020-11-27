@@ -19,10 +19,10 @@ FROM                   MAX
 WHERE                 AVG  
 AND                     SUM  
 OR                        LIKE  
-BETWEEN               DESC  
+BETWEEN            DESC  
 IN                         ASC  
-DISTINCT                   LIMIT    
-ORDER BY              JOIN ON  
+DISTINCT              LIMIT    
+ORDER BY            JOIN ON  
 AS                        NULL  
 HAVING  
 
