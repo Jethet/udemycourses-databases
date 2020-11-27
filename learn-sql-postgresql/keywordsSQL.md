@@ -16,8 +16,8 @@ Use =, >, >=, < and <=
 ### SQL keywords:
 SELECT                 MIN  
 FROM                   MAX  
-WHERE                  AVG  
-AND                    SUM  
+WHERE                 AVG  
+AND                     SUM  
 OR  
 BETWEEN  
 IN  
