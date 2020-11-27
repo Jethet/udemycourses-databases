@@ -14,10 +14,10 @@ Use =, >, >=, < and <=
 > WHERE orderdate > '2020-01-01'  
 
 ### SQL keywords:
-SELECT  
-FROM  
-WHERE  
-AND  
+SELECT                 MIN  
+FROM                   MAX  
+WHERE                  AVG  
+AND                    SUM  
 OR  
 BETWEEN  
 IN  
@@ -92,6 +92,26 @@ Also here you can add more columns to search in:
 > SELECT DISTINCT *column1*, *column2*  
 > FROM *tablename*  
 > ORDER BY *column1* ASC, *column2* ASC  
+
+**MIN MAX**  
+Can be used for dates as well (earliest - latest).  
+> SELECT MAX *column*  
+> FROM *tablename*  
+
+**AVG**  
+Calculate the average:  
+> SELECT AVG (*column*)  
+> FROM *tablename*  
+> WHERE *condition*  
+
+**SUM**  
+Calculate the number/amount:  
+> SELECT SUM (*column* ) 
+> FROM *tablename*  
+> WHERE *condition*  
+
+
+
 
 
 
