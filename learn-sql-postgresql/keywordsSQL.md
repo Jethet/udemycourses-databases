@@ -17,8 +17,8 @@ Use =, >, >=, < and <=
 SELECT                 MIN  
 FROM                   MAX  
 WHERE                 AVG  
-AND                    SUM  
-OR  
+AND                     SUM  
+OR                     LIKE  
 BETWEEN  
 IN  
 DISTINCT  
