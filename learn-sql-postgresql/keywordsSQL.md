@@ -18,11 +18,11 @@ SELECT                 MIN
 FROM                   MAX  
 WHERE                 AVG  
 AND                     SUM  
-OR                       LIKE  
-BETWEEN                  DESC  
-IN                       ASC  
-DISTINCT                 LIMIT    
-ORDER BY                 JOIN ON  
+OR                        LIKE  
+BETWEEN               DESC  
+IN                         ASC  
+DISTINCT                   LIMIT    
+ORDER BY              JOIN ON  
 AS                        NULL  
 HAVING  
 
