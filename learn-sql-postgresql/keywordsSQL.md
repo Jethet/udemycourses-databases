@@ -14,16 +14,16 @@ Use =, >, >=, < and <=
 > WHERE orderdate > '2020-01-01'  
 
 ### SQL keywords:
-SELECT                  MIN  
-FROM                    MAX  
-WHERE                  AVG  
-AND                      SUM  
-OR                         LIKE  
-BETWEEN             DESC  
-IN                           ASC  
-DISTINCT              LIMIT    
-ORDER BY            JOIN ON  
-AS                         NULL  
+SELECT                    MIN  
+FROM                      MAX  
+WHERE                    AVG  
+AND                        SUM  
+OR                           LIKE  
+BETWEEN               DESC  
+IN                             ASC  
+DISTINCT                LIMIT    
+ORDER BY              JOIN ON  
+AS                          NULL  
 HAVING  
 
 **SELECT**  
@@ -105,6 +105,12 @@ Calculate the number/amount:
 > SELECT SUM (*column* ) 
 > FROM *tablename*  
 > WHERE *condition*  
+
+**LIKE**  
+Match patterns with LIKE:  
+> SELECT *column1*, *column2*  
+> FROM *table_name*  
+> WHERE *column* LIKE *pattern*  
 
 
 
