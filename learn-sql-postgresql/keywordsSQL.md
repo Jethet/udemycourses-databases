@@ -18,16 +18,12 @@ SELECT                 MIN
 FROM                   MAX  
 WHERE                 AVG  
 AND                     SUM  
-OR                     LIKE  
-BETWEEN  
-IN  
-DISTINCT  
-ORDER BY  
-DESC  
-ASC  
-LIMIT  
-AS  
-JOIN ON  
+OR                       LIKE  
+BETWEEN                  DESC  
+IN                       ASC  
+DISTINCT                 LIMIT    
+ORDER BY                 JOIN ON  
+AS                        NULL  
 HAVING  
 
 **SELECT**  
