@@ -17,13 +17,13 @@ Use =, >, >=, < and <=
 SELECT                    MIN  
 FROM                      MAX  
 WHERE                    AVG  
-AND                        SUM  
-OR                           LIKE  
+AND                         SUM  
+OR                            LIKE  
 BETWEEN               DESC  
 IN                             ASC  
 DISTINCT                LIMIT    
 ORDER BY              JOIN ON  
-AS                          NULL  
+AS                            NULL  
 HAVING  
 
 **SELECT**  
