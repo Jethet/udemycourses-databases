@@ -150,6 +150,10 @@ To be able to work with tables in a schema, you add the schema name before the t
 * `INSERT INTO` *table name* (keys to be used) `VALUES` ('value for key', 'value for key', etc.)
 * `REFERENCES` *table name*(*table key*) The type also has to be added, for example `INT`: `customer_id    INT REFERENCES customers(id)`
 
+**Subquery**  
+* A complex query can be split into one *outer query* and *subqueries*.
+* It is recommended to write each query and then nest them into the outer query (main query).
+
 
 **Foreign Key**  
 Syntax: `FOREIGN KEY (column) REFERENCES parent_table (table_name)`  
