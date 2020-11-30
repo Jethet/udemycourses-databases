@@ -153,6 +153,7 @@ To be able to work with tables in a schema, you add the schema name before the t
 **Subquery**  
 * A complex query can be split into one *outer query* and *subqueries*.
 * It is recommended to write each query and then nest them into the outer query (main query).
+* Example: `select * from customers where id in (select customer from orders where product_name = (select id from products where name = 'Maximum' and type = 'Variable'))
 
 
 **Foreign Key**  
