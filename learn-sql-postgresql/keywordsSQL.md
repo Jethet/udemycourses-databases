@@ -38,7 +38,7 @@ Selecting with field names:
 > SELECT *column1*, *column2*, ...  
 > FROM *table_name*
 
-Selecting distinct values (only one value for each type):  
+Selecting distinct values (only one value for each type, ignores duplicates):  
 > SELECT DISTINCT *column1*, *column2*, ...  
 > FROM *table_name*
 
