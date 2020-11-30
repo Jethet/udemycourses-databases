@@ -1,5 +1,8 @@
 ### SQL datatypes:
 
+**Before creating a table:** use  
+> drop table if exists *table name(s)*  
+
 **TEXT**  
 **single quotes! Postgres does not allow double quotes**
 > WHERE customername = 'Brown'  
@@ -78,6 +81,9 @@ BETWEEN is a shortcut for >= xxx AND <= xxx
 **IN operator**  
 In queries many conditions (WHERE id=2 OR id=9 OR id=15 OR id=18 OR id=22) you can use  
 > WHERE id IN (2, 9, 15, 18, 22)  
+It can also be used to find values between two numbers:  
+> WHERE id IN (20, 50)  
+This will select each id that is between 20 and 50.  
 
 **ORDER BY**  
 To get ordered results, ascending or descending:  
@@ -111,6 +117,12 @@ Match patterns with LIKE:
 > SELECT *column1*, *column2*  
 > FROM *table_name*  
 > WHERE *column* LIKE *pattern*  
+Using % you create a pattern:  
+> WHERE suppliername LIKE 'a%' (all supplier names starting with a)  
+> WHERE suppliername LIKE '%t' (all supplier names ending on t)  
+> WHERE suppliername LIKE '%ker%' (all supplier names with ker in name somewhere)  
+> WHERE suppliername LIKE 'A%i' (all supplier names starting with A and ending with i)  
+**case-sensitive!**  
 
 
 
@@ -118,6 +130,10 @@ Match patterns with LIKE:
 
 
 
+
+
+
+------------
 **SCHEMAS**  
 To be able to work with tables in a schema, you add the schema name before the table name: production.product, for example.
 
@@ -125,12 +141,15 @@ To be able to work with tables in a schema, you add the schema name before the t
 * `SERIAL PRIMARY KEY` defines a unique identifier for each row that will automatically increment every time data is inserted
 * `VARCHAR()` defines a column to hold text with a maximum length of characters
 * `NOT NULL` defines the column as not nullable: a value must be set
+* `DEFAULT` you can set a default value if the value cannot be null
 * `INT`
 * `TEXT`
 * `BOOLEAN`
 * `DATE`
 *A database will reject any values that do not match the type!*  
 * `INSERT INTO` *table name* (keys to be used) `VALUES` ('value for key', 'value for key', etc.)
+* `REFERENCES` *table name*(*table key*) The type also has to be added, for example `INT`: `customer_id    INT REFERENCES customers(id)`
+
 
 **Foreign Key**  
 Syntax: `FOREIGN KEY (column) REFERENCES parent_table (table_name)`  
