@@ -81,9 +81,9 @@ BETWEEN is a shortcut for >= xxx AND <= xxx
 **IN operator**  
 In queries many conditions (WHERE id=2 OR id=9 OR id=15 OR id=18 OR id=22) you can use  
 > WHERE id IN (2, 9, 15, 18, 22)  
+
 It can also be used to find values between two numbers:  
-> WHERE id IN (20, 50)  
-This will select each id that is between 20 and 50.  
+> WHERE id IN (20, 50)  *This will select each id that is between 20 and 50.*  
 
 **ORDER BY**  
 To get ordered results, ascending or descending:  
@@ -121,6 +121,7 @@ Calculate the number/amount:
 > WHERE suppliername LIKE '%t' (all supplier names ending on t)  
 > WHERE suppliername LIKE '%ker%' (all supplier names with ker in name somewhere)  
 > WHERE suppliername LIKE 'A%i' (all supplier names starting with A and ending with i)  
+
 **case-sensitive!**  
 
 **Underscore: _** Match patterns with `_`:  
@@ -132,6 +133,7 @@ Calculate the number/amount:
 You can do a query and give the result a column name for clarity:  
 > SELECT price * quantity AS TotalSpent  
 > FROM order_details  
+
 Since the alias column first has to be created with the SELECT statement, you cannot use `FROM`, `WHERE` or `HAVING`.  
 It is possible to use `GROUP BY` and `ORDER BY` because these statements are evaluated after `SELECT`.
 
