@@ -47,11 +47,11 @@ To connect, use:
 
 **Stop** run: `q`  
 **Quit** programme: `\q`  
-Check **version**: `psql -V ` 
-**Create** database: `createdb NAME_DB ` 
-**Connect** to database: `psql NAME_DB  `
-**Execute** SQL code in file: `psql -d *database* -f exampleFile.sql  `
-See **list** of databases: `\l ` 
+Check **version**: `psql -V `   
+**Create** database: `createdb NAME_DB `   
+**Connect** to database: `psql NAME_DB  `  
+**Execute** SQL code in file: `psql -d *database* -f exampleFile.sql  `  
+See **list** of databases: `\l `  
 **Clear** terminal: `\! clear`  
 Connect to **other** database: `\c *database* `  
 **Show users**: (postgres as superuser) `\du`  

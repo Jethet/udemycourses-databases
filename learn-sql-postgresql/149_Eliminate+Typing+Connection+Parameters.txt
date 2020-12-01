@@ -1,0 +1,17 @@
+export PGHOST=localhost
+export PGPORT=5433
+export PGUSER=postgres
+export PGPASSWORD=yourpassword
+export PGDATABASE=northwind
+
+--this is the .pgpass format
+localhost:5433:northwind:postgres:yourpassword
+
+
+--this is the .pg_service.conf format
+[myservice]
+host=localhost
+port=5432
+dbname=test
+user=postgres
+password=abc
