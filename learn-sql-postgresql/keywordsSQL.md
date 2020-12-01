@@ -1,11 +1,11 @@
 ### SQL datatypes:
 
 **Before creating a table:** use  
-`drop table if exists *table name(s)*`  
+`drop table if exists *table name(s)*;`  
 
 **TEXT**  
 **single quotes! Postgres does not allow double quotes**
-`WHERE customername = 'Brown'`  
+`WHERE customername = 'Brown';`  
 *to escape a single quote, use double quote: `'O"Brien'`*  
 
 **NUMERIC FIELDS (no quotes)**  
@@ -13,8 +13,8 @@ Use =, >, >=, < and <=
 
 **DATE FIELDS**  
 **single quotes! syntax depends on location and system setup for dates**  
-`WHERE orderdate = '2020-05-14'`  
-`WHERE orderdate > '2020-01-01'`  
+`WHERE orderdate = '2020-05-14';`  
+`WHERE orderdate > '2020-01-01';`  
 
 ### SQL keywords:
 SELECT                    MIN  
@@ -32,112 +32,108 @@ HAVING
 **SELECT**  
 Selecting all data from table:   
 `SELECT *`  
-`FROM *table_name*`
+`FROM *table_name*;`
 
 Selecting with field names:  
 `SELECT *column1*, *column2*, ...`  
-`FROM *table_name*`
+`FROM *table_name*;`
 
 Selecting distinct values (only one value for each type, ignores duplicates):  
 `SELECT DISTINCT *column1*, *column2*, ...`  
-`FROM *table_name*`
+`FROM *table_name*;`
 
 **SELECT COUNT**  
 *How many* records match? (e.g. how many items in a table)  
 `SELECT COUNT (*column1*)`  
-`FROM *table_name*`
-
+`FROM *table_name*;`  
 or for all rows:  
 `SELECT COUNT (*)`  
-`FROM *table_name*`
+`FROM *table_name*;`  
 
 Combine with **DISTINCT**:  
-> SELECT COUNT (DISTINCT *column*)  
-> FROM *table_name*
+`SELECT COUNT (DISTINCT *column*)`  
+`FROM *table_name*;`  
 
 **Combining fields for calculations**  
-> SELECT *column1* + *column2*  
-> SELECT *column1* / 1.1  
+`SELECT *column1* + *column2*`  
+`SELECT *column1* / 1.1;`  
 
 **WHERE to narrow down selection**  
-> SELECT *column1*, *column2*  
-> FROM *table_name*  
-> WHERE *condition*  
+`SELECT *column1*, *column2*`  
+`FROM *table_name*`  
+`WHERE *condition*;`  
 
 **LOGICAL OPERATORS: AND, OR, NOT**  
 * Using AND with WHERE: all conditions must be true for a record to be selected
-> WHERE *condition1* AND *condition2* AND *condition3* ...  
+`WHERE *condition1* AND *condition2* AND *condition3* ...;`  
 * Using OR with WHERE: one of the conditions must be true for a record to be selected
-> WHERE *condition1* OR *condition2* OR *condition3* ...  
+`WHERE *condition1* OR *condition2* OR *condition3* ...;`  
 * Using OR with WHERE: a record will be selected if the condition(s) is not true
-> WHERE NOT *condition*  
+`WHERE NOT *condition*;`  
 * Combining AND, OR and NOT with WHERE: *use parentheses to group for clarity!*  
-> WHERE (*condition1* AND *condition2*) OR *condition3*  
+`WHERE (*condition1* AND *condition2*) OR *condition3*;`  
 
 **BETWEEN operator**  
 BETWEEN is a shortcut for >= xxx AND <= xxx  
-> WHERE *column* BETWEEN xxx AND xxx  
+`WHERE *column* BETWEEN xxx AND xxx;`  
 
 **IN operator**  
 In queries many conditions (WHERE id=2 OR id=9 OR id=15 OR id=18 OR id=22) you can use  
-> WHERE id IN (2, 9, 15, 18, 22)  
+`WHERE id IN (2, 9, 15, 18, 22);`  
 
 It can also be used to find values between two numbers:  
-> WHERE id IN (20, 50)  
-
+`WHERE id IN (20, 50);`  
 This will select each id that is between 20 and 50.  
 
 **ORDER BY**  
 To get ordered results, ascending or descending:  
-> SELECT DISTINCT *column*  
-> FROM *tablename*  
-> ORDER BY *column* ASC  (or DESC)  
+`SELECT DISTINCT *column*`  
+`FROM *tablename*`  
+`ORDER BY *column* ASC;`  (or `DESC`)  
 Also here you can add more columns to search in:  
-> SELECT DISTINCT *column1*, *column2*  
-> FROM *tablename*  
-> ORDER BY *column1* ASC, *column2* ASC  
+`SELECT DISTINCT *column1*, *column2*`  
+`FROM *tablename*`  
+`ORDER BY *column1* ASC, *column2* ASC;`  
 
 **MIN MAX**  
 Can be used for dates as well (earliest - latest).  
-> SELECT MAX *column*  
-> FROM *tablename*  
+`SELECT MAX *column*`  
+`FROM *tablename*;`  
 
 **AVG**  
 Calculate the average:  
-> SELECT AVG (*column*)  
-> FROM *tablename*  
-> WHERE *condition*  
+`SELECT AVG (*column*)`  
+`FROM *tablename*`  
+`WHERE *condition*;`  
 
 **SUM**  
 Calculate the number/amount:  
-> SELECT SUM (*column* ) 
-> FROM *tablename*  
-> WHERE *condition*  
+`SELECT SUM (*column*)` 
+`FROM *tablename*`  
+`WHERE *condition*;`  
 
 **LIKE** Match patterns with `LIKE`:  
-> SELECT *column1*, *column2*  
-> FROM *table_name*  
-> WHERE *column* LIKE *pattern*  
+`SELECT *column1*, *column2*`  
+`FROM *table_name*`  
+`WHERE *column* LIKE *pattern*;`  
 **Using % you create a pattern:**  
-> WHERE suppliername LIKE 'a%' (all supplier names starting with a)  
-> WHERE suppliername LIKE '%t' (all supplier names ending on t)  
-> WHERE suppliername LIKE '%ker%' (all supplier names with ker in name somewhere)  
-> WHERE suppliername LIKE 'A%i' (all supplier names starting with A and ending with i)  
-
+`WHERE suppliername LIKE 'a%';` (all supplier names starting with a)  
+`WHERE suppliername LIKE '%t';` (all supplier names ending on t)  
+`WHERE suppliername LIKE '%ker%';` (all supplier names with ker in name somewhere)  
+`WHERE suppliername LIKE 'A%i';` (all supplier names starting with A and ending with i)  
 **case-sensitive!**  
 
 **Underscore: _** Match patterns with `_`:  
 `_` stands for *any* single character and can be used for an open character space:  
 `WHERE contactname LIKE '_a%';` uses an open space and 'a' as second letter  
-`WHERE contactname LIKE 'E_%_%'` name starts with 'E' and has at least two other letters  
+`WHERE contactname LIKE 'E_%_%';` name starts with 'E' and has at least two other letters  
 
 **AS** *setting an alias name to columns with AS*  
 You can do a query and give the result a column name for clarity:  
-> SELECT price * quantity AS TotalSpent  
-> FROM order_details  
-
+`SELECT price * quantity AS TotalSpent`  
+`FROM order_details;`  
 Since the alias column first has to be created with the SELECT statement, you cannot use `FROM`, `WHERE` or `HAVING`.  
-It is possible to use `GROUP BY` and `ORDER BY` because these statements are evaluated after `SELECT`.
+It is possible to use `GROUP BY` and `ORDER BY` because these statements are evaluated after `SELECT`.  
 
 
 
