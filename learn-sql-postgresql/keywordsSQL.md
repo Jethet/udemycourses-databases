@@ -1,20 +1,20 @@
 ### SQL datatypes:
 
 **Before creating a table:** use  
-> drop table if exists *table name(s)*  
+`drop table if exists *table name(s)*`  
 
 **TEXT**  
 **single quotes! Postgres does not allow double quotes**
-> WHERE customername = 'Brown'  
-*to escape a single quote, use double quote: 'O"Brien'*  
+`WHERE customername = 'Brown'`  
+*to escape a single quote, use double quote: `'O"Brien'`*  
 
 **NUMERIC FIELDS (no quotes)**  
 Use =, >, >=, < and <=  
 
 **DATE FIELDS**  
 **single quotes! syntax depends on location and system setup for dates**  
-> WHERE orderdate = '2020-05-14'  
-> WHERE orderdate > '2020-01-01'  
+`WHERE orderdate = '2020-05-14'`  
+`WHERE orderdate > '2020-01-01'`  
 
 ### SQL keywords:
 SELECT                    MIN  
@@ -31,25 +31,25 @@ HAVING
 
 **SELECT**  
 Selecting all data from table:   
-> SELECT *  
-> FROM *table_name*
+`SELECT *`  
+`FROM *table_name*`
 
 Selecting with field names:  
-> SELECT *column1*, *column2*, ...  
-> FROM *table_name*
+`SELECT *column1*, *column2*, ...`  
+`FROM *table_name*`
 
 Selecting distinct values (only one value for each type, ignores duplicates):  
-> SELECT DISTINCT *column1*, *column2*, ...  
-> FROM *table_name*
+`SELECT DISTINCT *column1*, *column2*, ...`  
+`FROM *table_name*`
 
 **SELECT COUNT**  
 *How many* records match? (e.g. how many items in a table)  
-> SELECT COUNT (*column1*)  
-> FROM *table_name*
+`SELECT COUNT (*column1*)`  
+`FROM *table_name*`
 
 or for all rows:  
-> SELECT COUNT (*)  
-> FROM *table_name*
+`SELECT COUNT (*)`  
+`FROM *table_name*`
 
 Combine with **DISTINCT**:  
 > SELECT COUNT (DISTINCT *column*)  
@@ -83,7 +83,9 @@ In queries many conditions (WHERE id=2 OR id=9 OR id=15 OR id=18 OR id=22) you c
 > WHERE id IN (2, 9, 15, 18, 22)  
 
 It can also be used to find values between two numbers:  
-> WHERE id IN (20, 50)  *This will select each id that is between 20 and 50.*  
+> WHERE id IN (20, 50)  
+
+This will select each id that is between 20 and 50.  
 
 **ORDER BY**  
 To get ordered results, ascending or descending:  
