@@ -28,7 +28,7 @@ You can override with the command
 
 Other ways to avoid typing all the connection parameters are:  
 * using environment variables using export PGHOST, PGPORT, PGUSER, PGPASSWORD, PGDATABASE, and set these for the connection
-* create a .pgpass file in the home directory with hostname:port:database:username:password  
+* create a .pgpass file in the home directory with  hostname:port:database:username:password  
 (example: `localhost:5432:*nameDbase*:postgres;*password*`)
 * if you use **multiple databases** you can set up a .pg_service.conf file that contains multiple settings: 
 ``` 

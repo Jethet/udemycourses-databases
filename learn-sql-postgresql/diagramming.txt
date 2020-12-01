@@ -1,0 +1,21 @@
+DIAGRAMMING TABLE RELATIONSHIPS
+
+a) create a map of tables with each table in a box, with fields listed
+b) look for fields with the same name (relationships)
+c) draw lines for each relationship
+
+________________            ________________
+|  customers   |            |  orders      |
+|______________|            |______________|
+| customerid   |-----}      | orderrid     |
+| companyname  |      {-----| customerid   |
+| contactname  |            | employeeid   |
+| address      |            | orderdate    |
+| city         |            | requireddate |
+| postalcode   |            | shippeddate  |
+| country      |            | freight      |
+| region       |            | shipaddress  |
+| fax          |            | shipcity     |
+| phone        |            | shipppostcd  |
+________________            | shipcountry  |
+                            ________________
