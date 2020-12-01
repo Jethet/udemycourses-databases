@@ -112,20 +112,28 @@ Calculate the number/amount:
 > FROM *tablename*  
 > WHERE *condition*  
 
-**LIKE**  
-Match patterns with LIKE:  
+**LIKE** Match patterns with `LIKE`:  
 > SELECT *column1*, *column2*  
 > FROM *table_name*  
 > WHERE *column* LIKE *pattern*  
-Using % you create a pattern:  
+**Using % you create a pattern:**  
 > WHERE suppliername LIKE 'a%' (all supplier names starting with a)  
 > WHERE suppliername LIKE '%t' (all supplier names ending on t)  
 > WHERE suppliername LIKE '%ker%' (all supplier names with ker in name somewhere)  
 > WHERE suppliername LIKE 'A%i' (all supplier names starting with A and ending with i)  
 **case-sensitive!**  
 
+**Underscore: _** Match patterns with `_`:  
+`_` stands for *any* single character and can be used for an open character space:  
+`WHERE contactname LIKE '_a%';` uses an open space and 'a' as second letter  
+`WHERE contactname LIKE 'E_%_%'` name starts with 'E' and has at least two other letters  
 
-
+**AS** *setting an alias name to columns with AS*  
+You can do a query and give the result a column name for clarity:  
+> SELECT price * quantity AS TotalSpent  
+> FROM order_details  
+Since the alias column first has to be created with the SELECT statement, you cannot use `FROM`, `WHERE` or `HAVING`.  
+It is possible to use `GROUP BY` and `ORDER BY` because these statements are evaluated after `SELECT`.
 
 
 
@@ -149,6 +157,8 @@ To be able to work with tables in a schema, you add the schema name before the t
 *A database will reject any values that do not match the type!*  
 * `INSERT INTO` *table name* (keys to be used) `VALUES` ('value for key', 'value for key', etc.)
 * `REFERENCES` *table name*(*table key*) The type also has to be added, for example `INT`: `customer_id    INT REFERENCES customers(id)`
+* `SERIAL` creates a sequence that generates a sequence of integers (often used as primary key column in a table by using `id SERIAL`). `SERIAL` creates an auto-increment column for a table.
+
 
 **Subquery**  
 * A complex query can be split into one *outer query* and *subqueries*.
