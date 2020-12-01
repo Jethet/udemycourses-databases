@@ -76,29 +76,6 @@ FOREIGN KEY (student_name) REFERENCES students (name)
 )
 ```
 
-**Alter table**
-* To change the structure of an existing table, you use PostgreSQL ALTER TABLE statement. The syntax is:  
-`ALTER TABLE table_name action;`
-* The following changes to an existing table are available (data_type can be INT, VARCHAR, etc.):
-```
-ALTER TABLE table_name 
-ADD COLUMN column_name data_type column_constraint;
-
-ALTER TABLE table_name 
-DROP COLUMN column_name;
-
-ALTER TABLE table_name 
-RENAME COLUMN column_name 
-TO new_column_name;
-
-ALTER TABLE table_name 
-ALTER COLUMN column_name 
-[SET DEFAULT value | DROP DEFAULT];
-
-ALTER TABLE table_name 
-RENAME TO new_table_name;
-
-```
 
 #### JOINING TABLES
 A single query can combine information from many tables. This can be done in may ways:  
@@ -122,4 +99,39 @@ FROM orders
 JOIN customers ON customers.customerid = orders.customerid  
 ```
 
+**ALTER**
+* To change the structure of an existing table, you use PostgreSQL ALTER TABLE statement. The syntax is:  
+`ALTER TABLE table_name action;`
+* The following changes to an existing table are available (data_type can be INT, VARCHAR, etc.):
+```
+ALTER TABLE table_name 
+ADD COLUMN column_name data_type column_constraint;
+
+ALTER TABLE table_name 
+DROP COLUMN column_name;
+
+ALTER TABLE table_name 
+RENAME COLUMN column_name 
+TO new_column_name;
+
+ALTER TABLE table_name 
+ALTER COLUMN column_name 
+[SET DEFAULT value | DROP DEFAULT];
+
+ALTER TABLE table_name 
+RENAME TO new_table_name;
+
+```
+
+**UPDATE**  
+Syntax: `UPDATE table SET column1 = value1, column2 = value2 WHERE condition;`  
+Examples:  
+`UPDATE customers SET name='John Smith', country='UK' WHERE id=3;`  
+`UPDATE bookings SET nights = 5 where customer_id = 1 and hotel_id = 1;`  
+
+**DELETE**  
+Syntax: `DELETE FROM table WHERE condition;`  
+The values will be deleted but the row is not gone (contrary to using **drop**).  
+Example:  
+`DELETE FROM bookings WHERE id = 4;`
 

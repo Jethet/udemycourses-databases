@@ -150,4 +150,12 @@ WHERE *column* IS NOT NULL
 
 
 
+**EXTRACT**
+With `EXTRACT FROM` you get a field from a date or time value:  
+`SELECT EXTRACT(YEAR FROM *date*)`  
+or  
+`EXTRACT *field* FROM *condition*`  
+Example:    
+`SELECT * FROM bookings`  
+`WHERE EXTRACT(year from checkin_date) = 2020;`  
 
