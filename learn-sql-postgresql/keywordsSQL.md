@@ -64,11 +64,11 @@ Combine with **DISTINCT**:
 `WHERE *condition*;`  
 
 **LOGICAL OPERATORS: AND, OR, NOT**  
-* Using AND with WHERE: all conditions must be true for a record to be selected
+* Using AND with WHERE: all conditions must be true for a record to be selected  
 `WHERE *condition1* AND *condition2* AND *condition3* ...;`  
-* Using OR with WHERE: one of the conditions must be true for a record to be selected
+* Using OR with WHERE: one of the conditions must be true for a record to be selected  
 `WHERE *condition1* OR *condition2* OR *condition3* ...;`  
-* Using OR with WHERE: a record will be selected if the condition(s) is not true
+* Using OR with WHERE: a record will be selected if the condition(s) is not true  
 `WHERE NOT *condition*;`  
 * Combining AND, OR and NOT with WHERE: *use parentheses to group for clarity!*  
 `WHERE (*condition1* AND *condition2*) OR *condition3*;`  
@@ -90,6 +90,7 @@ To get ordered results, ascending or descending:
 `SELECT DISTINCT *column*`  
 `FROM *tablename*`  
 `ORDER BY *column* ASC;`  (or `DESC`)  
+
 Also here you can add more columns to search in:  
 `SELECT DISTINCT *column1*, *column2*`  
 `FROM *tablename*`  
@@ -108,7 +109,7 @@ Calculate the average:
 
 **SUM**  
 Calculate the number/amount:  
-`SELECT SUM (*column*)` 
+`SELECT SUM (*column*)`  
 `FROM *tablename*`  
 `WHERE *condition*;`  
 
@@ -116,26 +117,52 @@ Calculate the number/amount:
 `SELECT *column1*, *column2*`  
 `FROM *table_name*`  
 `WHERE *column* LIKE *pattern*;`  
+
 **Using % you create a pattern:**  
 `WHERE suppliername LIKE 'a%';` (all supplier names starting with a)  
 `WHERE suppliername LIKE '%t';` (all supplier names ending on t)  
 `WHERE suppliername LIKE '%ker%';` (all supplier names with ker in name somewhere)  
 `WHERE suppliername LIKE 'A%i';` (all supplier names starting with A and ending with i)  
-**case-sensitive!**  
+**The pattern is case-sensitive!**  
 
-**Underscore: _** Match patterns with `_`:  
-`_` stands for *any* single character and can be used for an open character space:  
+**Underscore: _**  
+Match patterns with `_`: here `_` stands for *any* single character and can be used for an open character space:  
 `WHERE contactname LIKE '_a%';` uses an open space and 'a' as second letter  
 `WHERE contactname LIKE 'E_%_%';` name starts with 'E' and has at least two other letters  
 
-**AS** *setting an alias name to columns with AS*  
-You can do a query and give the result a column name for clarity:  
+**AS**  
+setting an alias name to columns with AS: you can do a query and give the result a column name for clarity:  
 `SELECT price * quantity AS TotalSpent`  
 `FROM order_details;`  
 Since the alias column first has to be created with the SELECT statement, you cannot use `FROM`, `WHERE` or `HAVING`.  
 It is possible to use `GROUP BY` and `ORDER BY` because these statements are evaluated after `SELECT`.  
 
+**LIMIT**  
+To control the number of records returned by a search query:  
+`SELECT *column*`  
+`FROM *table_name*`  
+`LIMIT *number*;`  
+Example:  
+```
+SELECT productid, unitprice * quantity AS BiggestOrder  
+FROM order_details  
+ORDER BY BiggestOrder DESC  
+LIMIT 5;  
+```
 
+**NULL**   
+* The `NULL` value is a special value that signifies **unknown** (not zero or empty).
+* If there is no value in a particular field, PostgreSQL will put NULL as the default.
+* **Search syntax**: there are two options to search for NULL values:  
+```
+SELECT *column_names * 
+FROM *table_name*  
+WHERE *column* IS NULL  
+
+SELECT *column_names * 
+FROM *table_name*  
+WHERE *column* IS NOT NULL  
+```
 
 
 
@@ -162,9 +189,10 @@ To be able to work with tables in a schema, you add the schema name before the t
 
 **Subquery**  
 * A complex query can be split into one *outer query* and *subqueries*.
-* It is recommended to write each query and then nest them into the outer query (main query).
-* Example: `select * from customers where id in (select customer from orders where product_name = (select id from products where name = 'Maximum' and type = 'Variable'))
-
+* It is recommended to write each query and then nest them into the outer query (main query). Example:
+```
+select * from customers where id in (select customer from orders where product_name = (select id from products where name = 'Maximum' and type = 'Variable'))  
+```
 
 **Foreign Key**  
 Syntax: `FOREIGN KEY (column) REFERENCES parent_table (table_name)`  
