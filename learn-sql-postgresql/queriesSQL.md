@@ -15,6 +15,9 @@ Use =, >, >=, < and <=
 `WHERE orderdate = '2020-05-14';`  
 `WHERE orderdate > '2020-01-01';`  
 
+**BOOLEANS**  
+Boolean values TRUE and FALSE  
+
 
 **Before creating a table:** use  
 `drop table if exists *table name(s)*;`  
@@ -22,7 +25,7 @@ Use =, >, >=, < and <=
 **SCHEMAS**  
 To be able to work with tables in a schema, you add the schema name before the table name: production.product, for example.
 
-**TABLES**  
+**SELECT queries**  
 * `SERIAL PRIMARY KEY` defines a unique identifier for each row that will automatically increment every time data is inserted
 * `VARCHAR()` defines a column to hold text with a maximum length of characters
 * `NOT NULL` defines the column as not nullable: a value must be set
@@ -41,7 +44,11 @@ To be able to work with tables in a schema, you add the schema name before the t
 * A complex query can be split into one *outer query* and *subqueries*.
 * It is recommended to write each query and then nest them into the outer query (main query). Example:
 ```
-select * from customers where id in (select customer from orders where product_name = (select id from products where name = 'Maximum' and type = 'Variable'))  
+select * from customers where id in (  
+  select customer from orders where product_name = (  
+    select id from products where name = 'Maximum' and type = 'Variable'  
+    )  
+    )  
 ```
 
 **Foreign Key**  
@@ -52,7 +59,8 @@ Syntax: `FOREIGN KEY (column) REFERENCES parent_table (table_name)`
 * A table can possess multiple foreign keys according to its relationships with other tables. 
 
 **To reference a foreign key**
-* make the field in the parent table unique so that there is not more than one record that matches. Example: table *students* has *name*: put UNIQUE there or add it later on with: 
+* make the field in the parent table unique so that there is not more than one record that matches.   
+Example: table *students* has *name*: put UNIQUE there or add it later on with: 
 ```
 alter table students  
 add constraint name unique (name)
