@@ -83,8 +83,8 @@ A single query can combine information from many tables. This can be done in may
 * all records from one table and any matching records from the second table
 * all records from one table matched with all records from the second table
 
-**Inner Join**  
-Default - returns only records with matching values in both tables.  
+**INNER JOIN**  
+Inner join is the default - returns only records with matching values in both tables.  
 Use the full tablename `table_name.field_name`   Example: `customers.customerid`  
 Syntax:  
 ```
@@ -92,12 +92,26 @@ SELECT column_names
 FROM table1  
 INNER JOIN table2 ON table2.column_name = table1.column_name;  
 ```
+Examples:  
+```
+SELECT customer.name  
+FROM customers  
+JOIN bookings ON customers.id = bookings.customer_id  
+WHERE bookings.id = 1;  
+
+SELECT * FROM bookings  
+JOIN customers ON customer.id = bookings.customer_id  
+JOIN hotels ON hotels.id = bookings.hotel_id;
+```
 Instead of `INNER JOIN` you can use `JOIN` since `INNER` is the default for `JOIN`. Example:  
 ```
 SELECT companyname, orderdate, shipcountry  
 FROM orders  
 JOIN customers ON customers.customerid = orders.customerid  
 ```
+
+**OUTER JOIN**  
+Outer join 
 
 **ALTER**
 * To change the structure of an existing table, you use PostgreSQL ALTER TABLE statement. The syntax is:  
@@ -125,12 +139,14 @@ RENAME TO new_table_name;
 
 **UPDATE**  
 Syntax: `UPDATE table SET column1 = value1, column2 = value2 WHERE condition;`  
+**=> always include a WHERE condition, otherwise all rows will be updated**
 Examples:  
 `UPDATE customers SET name='John Smith', country='UK' WHERE id=3;`  
 `UPDATE bookings SET nights = 5 where customer_id = 1 and hotel_id = 1;`  
 
 **DELETE**  
 Syntax: `DELETE FROM table WHERE condition;`  
+**=> always include a WHERE condition, otherwise all rows will be deleted**
 The values will be deleted but the row is not gone (contrary to using **drop**).  
 Example:  
 `DELETE FROM bookings WHERE id = 4;`

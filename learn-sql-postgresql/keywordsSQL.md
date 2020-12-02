@@ -96,7 +96,8 @@ Calculate the number/amount:
 `FROM *tablename*`  
 `WHERE *condition*;`  
 
-**LIKE** Match patterns with `LIKE`:  
+**LIKE and ILIKE**  
+Match patterns with `LIKE`:  
 `SELECT *column1*, *column2*`  
 `FROM *table_name*`  
 `WHERE *column* LIKE *pattern*;`  
@@ -106,7 +107,7 @@ Calculate the number/amount:
 `WHERE suppliername LIKE '%t';` (all supplier names ending on t)  
 `WHERE suppliername LIKE '%ker%';` (all supplier names with ker in name somewhere)  
 `WHERE suppliername LIKE 'A%i';` (all supplier names starting with A and ending with i)  
-**The pattern is case-sensitive!**  
+**The pattern with LIKE is case-sensitive! If you use ILIKE, it is not case-sensitive.**  
 
 **Underscore: _**  
 Match patterns with `_`: here `_` stands for *any* single character and can be used for an open character space:  
