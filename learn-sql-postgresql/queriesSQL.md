@@ -94,7 +94,7 @@ A single query can combine information from many tables. This can be done in may
 * all records from one table matched with all records from the second table
 
 **INNER JOIN**  
-Inner join is the default - returns only records with matching values in both tables.  
+Inner join is the default. Inner join pulls back records that have matching values in both tables. Inner join returns only records with matching values in both tables.  
 Use the full tablename `table_name.field_name`   Example: `customers.customerid`  
 Syntax:  
 ```
