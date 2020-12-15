@@ -1,5 +1,15 @@
 ### SQL QUERIES
 
+**Tablenames** are the plural of the data in the table:  
+*customer data* becomes *customers*  
+*order data* becomes *orders*  
+
+**ID fields** are the singular plus ID at the end:  
+*customers* uses *customerID* for one customer  
+*orders* uses *orderID* for one order  
+
+
+
 #### SQL Datatypes
 
 **TEXT**  
