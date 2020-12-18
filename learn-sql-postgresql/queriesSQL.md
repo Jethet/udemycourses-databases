@@ -29,6 +29,7 @@ The `req.body` is used in a post request that adds new data from the body conten
 
 **NUMERIC FIELDS (no quotes)**  
 Use =, >, >=, < and <=  
+Use <> to make sure entities are not equal to each other in any way
 
 **DATE FIELDS**  
 **single quotes! syntax depends on location and system setup for dates**  
@@ -103,7 +104,8 @@ A single query can combine information from many tables. This can be done in may
 * all records from one table matched with all records from the second table
 
 **INNER JOIN**  
-Inner join is the default. Inner join pulls back records that have matching values in both tables. Inner join returns only records with matching values in both tables.  
+Inner join is the default. Inner join pulls back records that have matching values in both tables.  
+Inner join returns only records with matching values in both tables.  
 Use the full tablename `table_name.field_name`   Example: `customers.customerid`  
 Syntax:  
 ```
@@ -133,14 +135,40 @@ JOIN customers ON customers.customerid = orders.customerid
 Outer join  
 
 **LEFT JOIN**  
-With `LEFT JOIN` you pull back all records of the first table plus any matching records in the second table.  
+With `LEFT JOIN` you pull back all records of the first table plus any matching records in the  
+second table.  
 ```
 SELECT column_names
 FROM table1
 LEFT JOIN table2 ON table1.column_name = table2.column_name
 ```  
 **RIGHT JOIN**  
-The opposite of `LEFT JOIN`: this query gets all matching records in the first table and all records in the second table.  
+The opposite of `LEFT JOIN`: this query gets all matching records in the first table and all  
+records in the second table.  
+
+**FULL JOIN**  
+Pulls all records in the first table and all records in the second table, even if the records  
+have no linking field or if there is NULL somewhere.  
+```
+SELECT column_names
+FROM table1
+FULL JOIN table2 ON table1.column_name = table2.column_name
+```  
+**SELF JOIN**  
+With `SELF JOIN` the table is linked to itself to find certain similarities or connections  
+(for example, employees to report to other employees).  
+Use an alias to rename the tables to be able to differentiate, for example the table  
+*customers* can be aliased as *customersA* in a SELF JOIN with *customersB*, and these  
+two are identical copies of the original table. Remember: the A and B have to be used for every  
+column as well!  
+```
+SELECT column_names
+FROM table_name AS tableA
+JOIN table_name AS tableB USING tableA.column = tableB.column
+WHERE condition
+``` 
+
+
 
 
 **ALTER**
