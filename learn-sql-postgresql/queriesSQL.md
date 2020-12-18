@@ -135,32 +135,28 @@ JOIN customers ON customers.customerid = orders.customerid
 Outer join  
 
 **LEFT JOIN**  
-With `LEFT JOIN` you pull back all records of the first table plus any matching records in the  
-second table.  
+With `LEFT JOIN` you pull back all records of the first table plus any matching records in the second table.  
 ```
 SELECT column_names
 FROM table1
 LEFT JOIN table2 ON table1.column_name = table2.column_name
 ```  
 **RIGHT JOIN**  
-The opposite of `LEFT JOIN`: this query gets all matching records in the first table and all  
-records in the second table.  
+The opposite of `LEFT JOIN`: this query gets all matching records in the first table and all records in the second table.  
 
 **FULL JOIN**  
-Pulls all records in the first table and all records in the second table, even if the records  
-have no linking field or if there is NULL somewhere.  
+Pulls all records in the first table and all records in the second table, even if the records have no linking field  
+or if there is NULL somewhere.  
 ```
 SELECT column_names
 FROM table1
 FULL JOIN table2 ON table1.column_name = table2.column_name
 ```  
 **SELF JOIN**  
-With `SELF JOIN` the table is linked to itself to find certain similarities or connections  
-(for example, employees to report to other employees).  
-Use an alias to rename the tables to be able to differentiate, for example the table  
-*customers* can be aliased as *customersA* in a SELF JOIN with *customersB*, and these  
-two are identical copies of the original table. Remember: the A and B have to be used for every  
-column as well!  
+With `SELF JOIN` the table is linked to itself to find certain similarities or connections (for example, employees who report  
+to other employees).  
+Use an alias to rename the tables to be able to differentiate, for example the table *customers* can be aliased as *customersA* in a SELF JOIN with *customersB*,  
+and these two are identical copies of the original table. Remember: the A and B have to be used for every column as well!  
 ```
 SELECT column_names
 FROM table_name AS tableA
@@ -204,7 +200,7 @@ Examples:
 
 **DELETE**  
 Syntax: `DELETE FROM table WHERE condition;`  
-**=> always include a WHERE condition, otherwise all rows will be deleted**
+**=> always include a WHERE condition, otherwise all rows will be deleted**  
 The values will be deleted but the row is not gone (contrary to using **drop**).  
 Example:  
 `DELETE FROM bookings WHERE id = 4;`
