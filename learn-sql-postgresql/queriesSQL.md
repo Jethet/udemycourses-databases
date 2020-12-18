@@ -130,7 +130,18 @@ JOIN customers ON customers.customerid = orders.customerid
 ```
 
 **OUTER JOIN**  
-Outer join 
+Outer join  
+
+**LEFT JOIN**  
+With `LEFT JOIN` you pull back all records of the first table plus any matching records in the second table.  
+```
+SELECT column_names
+FROM table1
+LEFT JOIN table2 ON table1.column_name = table2.column_name
+```  
+**RIGHT JOIN**  
+The opposite of `LEFT JOIN`: this query gets all matching records in the first table and all records in the second table.  
+
 
 **ALTER**
 * To change the structure of an existing table, you use PostgreSQL ALTER TABLE statement. The syntax is:  
