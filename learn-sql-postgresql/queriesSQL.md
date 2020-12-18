@@ -1,14 +1,24 @@
+### Query strings
+A query string is the portion of a URL after the question mark ? where data is passed to a web application and/or back-end database. The syntax is something like `url../...etc?value1=2&value2=3`.  
+
+The data are used in endpoints: `const value1 = req.query.value1`  
+
+Other data that is taken from a url can be `req.params`: the params come from path segments of the URL **after the :**,  
+that match a parameter in the route definition, such as an id: `req.params.customerId` where the path is `app.get("/customers/:id")`.  
+
+The `req.body` is used in a post request that adds new data from the body content (for example, a form). 
+
+
+
 ### SQL QUERIES
 
 **Tablenames** are the plural of the data in the table:  
 *customer data* becomes *customers*  
 *order data* becomes *orders*  
 
-**ID fields** are the singular plus ID at the end:  
-*customers* uses *customerID* for one customer  
-*orders* uses *orderID* for one order  
-
-
+**ID fields** are the singular plus Id at the end:  
+*customers* uses *customerId* for one customer  
+*orders* uses *orderId* for one order  
 
 #### SQL Datatypes
 
@@ -27,7 +37,6 @@ Use =, >, >=, < and <=
 
 **BOOLEANS**  
 Boolean values TRUE and FALSE  
-
 
 **Before creating a table:** use  
 `drop table if exists *table name(s)*;`  
