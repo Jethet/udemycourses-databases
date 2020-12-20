@@ -155,14 +155,34 @@ FULL JOIN table2 ON table1.column_name = table2.column_name
 **SELF JOIN**  
 With `SELF JOIN` the table is linked to itself to find certain similarities or connections (for example, employees who report  
 to other employees).  
-Use an alias to rename the tables to be able to differentiate, for example the table *customers* can be aliased as *customersA* in a SELF JOIN with *customersB*,  
-and these two are identical copies of the original table. Remember: the A and B have to be used for every column as well!  
+Use an alias to rename the tables to be able to differentiate, for example the table *customers* can be aliased as *customersA*  
+in a SELF JOIN with *customersB*, and these two are identical copies of the original table.  
+Remember: the A and B have to be used for every column as well!  
 ```
 SELECT column_names
 FROM table_name AS tableA
 JOIN table_name AS tableB USING tableA.column = tableB.column
 WHERE condition
 ``` 
+
+#### Shorter writing for JOIN queries:
+With **USING** you have less typing when joining tables:  
+```
+SELECT *
+FROM orders
+JOIN customer_details USING (customerid)
+```
+(instead of using `JOIN customer_details ON customer_details.id = orders.customerid`)  
+
+**NATURAL**  
+NATURAL is shorthand for JOIN on a column that is the same in both tables.  
+It can be used if naming is consistent across tables: the id's are the same in the parent table and the foreign key table.  
+```
+FROM table1
+NATURAL JOIN table2
+```
+`NATURAL JOIN` **cannot** be used if there is more than one field with the same name in both tables!   
+The `USING` or `JOIN ON` syntax has to be used in that case.  
 
 
 
