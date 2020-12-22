@@ -165,7 +165,7 @@ JOIN table_name AS tableB USING tableA.column = tableB.column
 WHERE condition
 ``` 
 
-#### Shorter writing for JOIN queries:
+**SHORTCUTS**:  
 With **USING** you have less typing when joining tables:  
 ```
 SELECT *
@@ -184,8 +184,13 @@ NATURAL JOIN table2
 `NATURAL JOIN` **cannot** be used if there is more than one field with the same name in both tables!   
 The `USING` or `JOIN ON` syntax has to be used in that case.  
 
-
-
+**GROUP BY**  
+A query can group data by any column:  
+```
+SELECT country, COUNT(*)
+FROM customers
+GROUP BY country DESC
+```
 
 **ALTER**
 * To change the structure of an existing table, you use PostgreSQL ALTER TABLE statement. The syntax is:  
