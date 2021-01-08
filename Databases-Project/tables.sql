@@ -2,60 +2,61 @@ drop table if exists teachers, students, staff, classes, languages, modules, att
 
 CREATE TABLE languages
 (
-  id SERIAL,
-  name TEXT CHECK (name IN ('English', 'Spanish'))
+  id    SERIAL PRIMARY KEY,
+  name  TEXT
 )
 
 CREATE TABLE students
 (
-  id SERIAL,
-  name VARCHAR(20),
-  email VARCHAR(20),
-  address VARCHAR(60),
-  phone_number VARCHAR(20),
-  status VARCHAR(15),
-  language TEXT REFERENCES languages  (name)
+  id           SERIAL PRIMARY KEY,
+  name         TEXT NOT NULL,
+  email        VARCHAR(20) NOT NULL,
+  address      TEXT,
+  phone_number TEXT NOT NULL,
+  batch        VARCHAR(9) CHECK (batch IN ('JULY2020-1', 'JULY2020-2', 'MAR2020-1', 'MAR2020-1', 'OCT2019')),
+  status       TEXT CHECK (status IN ('Studying', 'Graduated', 'Dropped Out')),
+  language     SERIAL REFERENCES languages (id)
 );
 
 CREATE TABLE teachers
 (
-  id SERIAL,
-  name VARCHAR(20),
-  email VARCHAR(20),
-  country VARCHAR(20),
-  language TEXT REFERENCES languages (name)
+  id         SERIAL PRIMARY KEY,
+  name       TEXT NOT NULL,
+  email      VARCHAR(20) NOT NULL,
+  country    TEXT,
+  language   SERIAL REFERENCES languages (id)
 );
 
 CREATE TABLE staff
 (
-  id SERIAL,
-  name VARCHAR(20),
-  email VARCHAR(20),
-  address VARCHAR(60),
-  phone_number VARCHAR(20),
-  bank_account VARCHAR(25),
-  position TEXT,
-  language TEXT REFERENCES languages (name)
+  id           SERIAL PRIMARY KEY,
+  name         TEXT NOT NULL,
+  email        VARCHAR(20) NOT NULL,
+  address      TEXT,
+  bank_account VARCHAR(20) NOT NULL,
+  phone_number TEXT NOT NULL,
+  position     TEXT,
+  language     SERIAL REFERENCES languages (id)
 );
 
 CREATE TABLE modules
 (
-  id SERIAL,
-  name VARCHAR(20),
-  language TEXT REFERENCES languages (name)
+  id        SERIAL PRIMARY KEY,
+  name      VARCHAR(20) NOT NULL,
+  language  SERIAL REFERENCES languages (id)
 )
 
 CREATE TABLE classes
 (
-  id SERIAL,
-  datetime DATETIME,
-  topic VARCHAR(20),
-  teacher TEXT REFERENCES teachers (id)
+  id        SERIAL PRIMARY KEY,
+  datetime  DATETIME NOT NULL,
+  topic     SERIAL REFERENCES modules (id),
+  teacher   SERIAL REFERENCES teachers (id)
 )
 
 CREATE TABLE attendance
 (
-  id SERIAL,
-  student_id TEXT REFERENCES students (id),
-  class_id TEXT REFERENCES classes (id)
+  id          SERIAL PRIMARY KEY,
+  student_id  SERIAL REFERENCES students (id),
+  class_id    SERIAL REFERENCES classes (id)
 )
