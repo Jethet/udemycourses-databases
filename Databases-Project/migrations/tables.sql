@@ -4,16 +4,16 @@ CREATE TABLE languages
 (
   id    SERIAL PRIMARY KEY,
   name  TEXT
-)
+);
 
 CREATE TABLE students
 (
   id           SERIAL PRIMARY KEY,
   name         TEXT NOT NULL,
-  email        VARCHAR(20) NOT NULL,
+  email        VARCHAR(30) NOT NULL,
   address      TEXT,
   phone_number TEXT NOT NULL,
-  batch        VARCHAR(9) CHECK (batch IN ('JULY2020-1', 'JULY2020-2', 'MAR2020-1', 'MAR2020-1', 'OCT2019')),
+  batch        VARCHAR(12) CHECK (batch IN ('JULY2020-1', 'JULY2020-2', 'MAR2020-1', 'MAR2020-1', 'OCT2019')),
   status       TEXT CHECK (status IN ('Studying', 'Graduated', 'Dropped Out')),
   language     SERIAL REFERENCES languages (id)
 );
@@ -22,7 +22,7 @@ CREATE TABLE teachers
 (
   id         SERIAL PRIMARY KEY,
   name       TEXT NOT NULL,
-  email      VARCHAR(20) NOT NULL,
+  email      VARCHAR(30) NOT NULL,
   country    TEXT,
   language   SERIAL REFERENCES languages (id)
 );
@@ -31,9 +31,9 @@ CREATE TABLE staff
 (
   id           SERIAL PRIMARY KEY,
   name         TEXT NOT NULL,
-  email        VARCHAR(20) NOT NULL,
+  email        VARCHAR(30) NOT NULL,
   address      TEXT,
-  bank_account VARCHAR(20) NOT NULL,
+  bank_account VARCHAR(30) NOT NULL,
   phone_number TEXT NOT NULL,
   position     TEXT,
   language     SERIAL REFERENCES languages (id)
@@ -42,21 +42,21 @@ CREATE TABLE staff
 CREATE TABLE modules
 (
   id        SERIAL PRIMARY KEY,
-  name      VARCHAR(20) NOT NULL,
+  name      VARCHAR(30) NOT NULL,
   language  SERIAL REFERENCES languages (id)
-)
+);
 
 CREATE TABLE classes
 (
   id        SERIAL PRIMARY KEY,
-  datetime  DATETIME NOT NULL,
+  datetime  TIMESTAMP NOT NULL,
   topic     SERIAL REFERENCES modules (id),
   teacher   SERIAL REFERENCES teachers (id)
-)
+);
 
 CREATE TABLE attendance
 (
   id          SERIAL PRIMARY KEY,
   student_id  SERIAL REFERENCES students (id),
   class_id    SERIAL REFERENCES classes (id)
-)
+);
